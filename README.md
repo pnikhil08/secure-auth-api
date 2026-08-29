@@ -1,10 +1,3 @@
-Yes. Since this project is **actively under development**, the README should describe **only what you have implemented right now**, while keeping a simple **Roadmap** that you can update every day.
-
-I would avoid calling it "production-ready" at this stage. An interviewer will appreciate an honest, evolving README more than a README that claims features you haven't built yet.
-
-Here is a clean version for your **current project status**:
-
-````markdown
 # 🔐 Authentication Backend API
 
 A backend authentication system built with **Node.js, Express.js, MongoDB, and JWT**.

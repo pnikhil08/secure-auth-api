@@ -682,3 +682,5 @@ System Design
 ⭐ **This project is actively maintained and continuously evolving.**
 
 ````
+Modify date :  31-08-2026
+Added : Add More content in Email Template for send OTP

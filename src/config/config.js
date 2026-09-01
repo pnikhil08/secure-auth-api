@@ -1,6 +1,10 @@
 import dotenv from 'dotenv';
 
+//all env varibale are ready to use by using this dotenv package
+
 dotenv.config();
+
+// This condition cheack all env file are exist are not if not then throw error 
 
 if(!process.env.MONGO_URI){
     throw new Error("MONGO_URI is not define in environment vaariable")
@@ -22,6 +26,7 @@ if(!process.env.GOOGLE_USER){
     throw new Error ("GOOGLE_USER is not define in environment variable")
 }
 
+// All Env File are export by config
 const config = {
     MONGO_URI : process.env.MONGO_URI,
     JWT_SECRET : process.env.JWT_SECRET,
@@ -29,6 +34,5 @@ const config = {
     GOOGLE_CLIENT_SECRET : process.env.GOOGLE_CLIENT_SECRET,
     GOOGLE_REFRESH_TOKEN : process.env.GOOGLE_REFRESH_TOKEN,
     GOOGLE_USER : process.env.GOOGLE_USER
-
 }
 export default config;

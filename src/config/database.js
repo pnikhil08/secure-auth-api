@@ -1,4 +1,4 @@
-
+// we use this file for connect database 
 import mongoose from "mongoose";
 import config from "./config.js";
 async function connectDB() {

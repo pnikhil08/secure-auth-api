@@ -684,3 +684,47 @@ System Design
 ````
 Modify date :  31-08-2026
 Added : Add More content in Email Template for send OTP
+
+📅 Development Update
+
+Date: September 2, 2026
+
+What We Implemented Today
+
+Today, the project was improved with a proper database connection and server startup flow.
+
+1. MongoDB Database Connection
+
+Created a dedicated database configuration file:
+
+src/
+└── config/
+    └── database.js
+
+The database.js file is responsible for:
+
+Connecting the application to MongoDB using Mongoose.
+Reading the MongoDB connection URI from the configuration.
+Handling database connection errors.
+Preventing the application from continuing when the database connection fails.
+2. Server Startup Flow
+
+Updated the main server file so that:
+
+The application loads.
+MongoDB connection is established.
+The HTTP server starts only after the database connection succeeds.
+
+Current flow:
+
+Application Start
+       ↓
+Connect to MongoDB
+       ↓
+Database Connected?
+    ↙         ↘
+  YES          NO
+   ↓            ↓
+Start Server   Exit Application
+
+This prevents the backend from accepting requests when the required database connection is unavailable.

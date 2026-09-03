@@ -1,32 +1,46 @@
 import mongoose from "mongoose";
 
-const sessionSchema = new mongoose.Schema({
-    user : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "users",
-        required : [true, "User is required"]
-    },
-    refreshTokenHash : {
-        type : String,
-        required : [true, " Refresh Token required"]
-    },
-    ip: {
-        type : String,
-        requied : [true, "IP address is required"]
-    },
-    userAgent : {
-        type : String,
-        required: [true, 'User agent is required']
-    },
-    revoked : {
-        type : Boolean,
-        default : false
-    },
+// Schema for storing user login sessions
+const sessionSchema = new mongoose.Schema(
+    {
+        // Reference to the user who owns this session
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "users",
+            required: [true, "User is required"],
+        },
 
-},{
-    timestamps : true
-})
+        // Hashed refresh token used to identify the session securely
+        refreshTokenHash: {
+            type: String,
+            required: [true, "Refresh Token required"],
+        },
 
-const sessionModel = mongoose.model("sessions", sessionSchema)
+        // IP address from which the session was created
+        ip: {
+            type: String,
+            required: [true, "IP address is required"],
+        },
 
-export default sessionModel
+        // Browser/client information used to identify the device
+        userAgent: {
+            type: String,
+            required: [true, "User agent is required"],
+        },
+
+        // Indicates whether the session has been invalidated
+        revoked: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    {
+        // Automatically adds createdAt and updatedAt fields
+        timestamps: true,
+    }
+);
+
+// Create and export the Session model
+const sessionModel = mongoose.model("sessions", sessionSchema);
+
+export default sessionModel;

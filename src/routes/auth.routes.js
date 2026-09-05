@@ -1,30 +1,27 @@
 import { Router } from "express";
-import * as authController from "../controllers/auth.controller.js"
-const authRouter = Router()
+import * as authController from "../controllers/auth.controller.js";
 
-// Post : /api/auth/register
-authRouter.post("/register", authController.register)
+const authRouter = Router();
 
-// POST : /api/auth/login
+// POST: /api/auth/register
+authRouter.post("/register", authController.register);
 
-authRouter.post("/login", authController.login)
+// POST: /api/auth/login
+authRouter.post("/login", authController.login);
 
-//GET /api/auth/get-me
-authRouter.get("/get-me", authController.getMe)
+// GET: /api/auth/get-me
+authRouter.get("/get-me", authController.getMe);
 
-// GET /api/auth/refresh-token
+// GET: /api/auth/refresh-token
+authRouter.get("/refresh-token", authController.refreshToken);
 
-authRouter.get("/refresh-token", authController.refreshToken) 
+// POST: /api/auth/logout
+authRouter.post("/logout", authController.logout);
 
-// GET /api/auth/logout
+// POST: /api/auth/logout-all
+authRouter.post("/logout-all", authController.logoutAll);
 
-authRouter.get("/logout", authController.logout) 
-
-// GET /api/auth/logout-all
-
-authRouter.get("/logout-all", authController.logoutAll)
-
-// GET /api/auth/verify-email
-authRouter.get("/verify-email", authController.verifyEmail)
+// GET: /api/auth/verify-email
+authRouter.get("/verify-email", authController.verifyEmail);
 
 export default authRouter;

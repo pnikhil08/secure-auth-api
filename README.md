@@ -7,8 +7,6 @@ This project is being developed incrementally to understand and implement authen
 > 🚧 **Status:** Active Development  
 > This project is continuously being improved as new authentication and backend security concepts are implemented.
 
----
-
 ## ✨ Current Features
 
 The following features are currently implemented:
@@ -35,11 +33,9 @@ The following features are currently implemented:
 - [x] Logout from all devices
 - [x] Protected `GET /get-me` endpoint
 
----
 
 # 🏗️ Project Architecture
 
-```text
 Client
   │
   ▼
@@ -70,15 +66,12 @@ User Model    Session Model    OTP Model
                   │
                   ▼
             Email Service
-````
 
----
 
 # 🔑 Authentication Flow
 
 ## 1. Registration
 
-```text
 POST /api/auth/register
           │
           ▼
@@ -101,13 +94,10 @@ Store OTP
           │
           ▼
 Send OTP through email
-```
-
----
 
 ## 2. Email Verification
 
-```text
+
 POST /api/auth/verify-email
           │
           ▼
@@ -124,15 +114,13 @@ Mark user as verified
           │
           ▼
 Delete OTP records
-```
 
----
 
 ## 3. Login
 
 A user can log in only after successfully verifying their email.
 
-```text
+
 Email + Password
        │
        ▼
@@ -167,9 +155,6 @@ Return Access Token
        ▼
 Store Refresh Token
 in HTTP-only Cookie
-```
-
----
 
 # 🎟️ Access Token & Refresh Token
 
@@ -177,10 +162,10 @@ This project currently uses two types of JWT tokens.
 
 ### Access Token
 
-```text
+
 Purpose: API authentication
 Lifetime: 15 minutes
-```
+
 
 The access token is sent using:
 
